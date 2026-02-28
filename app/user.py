@@ -35,7 +35,7 @@ async def chat_response(message: Message, state: FSMContext):
     if Decimal(user.balance) > 0:
         await state.set_state(Chat.wait)
         response = await gpt_text(message.text, 'deepseek-chat')
-        await calculate(message.from_user.id, response['usage'], 'deepseek-chat')
+        await calculate(message.from_user.id, response['usage'], 'deepseek-chat', user)
         await message.answer(response['response'])
         await state.set_state(Chat.wait)
     else:
