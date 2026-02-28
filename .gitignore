@@ -1,0 +1,4 @@
+_pychache_/
+.venv
+config.py
+db.sqlite3
